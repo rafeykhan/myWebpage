@@ -1,28 +1,489 @@
+<!DOCTYPE html>
 
 <html>
 <head>
-    <title>Rafey Khan</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css" >
+  <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <style>
+    * {box-sizing:border-box}
+    body,html{
+      height: 100%;
+      font-family: Verdana,sans-serif;
+      margin:0;
+    }
+
+    /* Fading animation */
+    .fades {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 5s;
+      animation-name: fade;
+      animation-duration: 5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .8}
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .8}
+      to {opacity: 1}
+    }
+
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      position: relative;
+      opacity: 0.65;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .bgimg-1 {
+      background-image: url("./media/ieeePhotos/competition.jpg");
+      min-height: 100%;
+      opacity: 1;
+      background-size: cover;
+    }
+
+    .bgimg-2 {
+      background-image: url("./media/ieeePhotos/robotVid.mp4");
+      min-height: 400px;
+    }
+
+    .bgimg-3 {
+      background-image: url("./media/ieeePhotos/ieeeMe.jpg");
+      min-height: 400px;
+      opacity: 1;
+      background-size: contain;
+      background-color: black;
+    }
+
+    .caption {
+      position:absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      color: #000;
+    }
+
+    .caption span.border {
+      background-color: #111;
+      color: #fff;
+      padding: 18px;
+      font-size: 25px;
+      letter-spacing: 10px;
+    }
+
+    h0 {
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font: 20px "Lato", sans-serif;
+      color: #111;
+    }
+
+    .container {
+      height: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      width: inherit;
+    }
+
+
+
+
+
+
+
+  </style>
+
 </head>
 
-<body>
-<div id="wrapper">
+<!-- Modal for mainhighlight-->
+<div class="modal fade" id="feat2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Video Demonstration</h4>
+            </div>
+            <div class="modal-body">
+              <div class="vid-responsive">
+                <video  controls muted  >
+                  <source src="./media/collabPush.mp4" type="video/mp4" >
+                    Your browser does not support the video tag.
+                </video>
+              </div>
 
-<div id="logo">
-<h1>Abdul R. Khan</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="about">
-<p>	Hi, I'm Rafey (pronounced Rafay) but most friends call me Abdul too :)
-<p> I am a Computer Engineering student at <a href="http://www.cse.uta.edu/">University of Texas at Arlington</a>.
-MY WEBPAGE IS A WORK IN PROGRESS :)
-</p>
-</div>
-<p>
+  <!-- Modal for feat2-->
+  <div class="modal fade" id="featCollabPush" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel">Video Demonstration</h4>
+              </div>
+              <div class="modal-body">
+                <div class="vid-responsive">
+                  <video  controls muted >
+                    <source src="./media/collabPush.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+                </div>
 
-</p>
+                <h3>Collaborative Pushing</h3>
+                <p>Objective: program a set of two robots to perform a collaborative box pushing task.
+                   Goal is to find a long box and then to move this box through a previously specified exit.<p>
+                  Master-follower combination was implemented. The master would use the sonars to detect the box and allign itself with it.
+                  Master would then send coordinates over bluetooth to the follower and wait for it to return 'ready' message once it is in place.
+                </p>
+                <!--<p><a href="http://github.com/">Link to project</a></p> -->
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Modal for feat2 end-->
 
-</div>
+  <!-- Modals for ieee-->
+  <div class="modal fade" id="drive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                <img src="./media/ieeePhotos/drive.jpg" class="img-responsive" alt="Responsive image">
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="competition" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                <img src="./media/ieeePhotos/competition.jpg" class="img-responsive" alt="Responsive image">
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="7seg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                <img src="./media/ieeePhotos/7seg.jpg" class="img-responsive" alt="Responsive image">
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="LEDmap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                <img src="./media/ieeePhotos/LEDmap.jpg" class="img-responsive" alt="Responsive image">
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="robotboard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                <img src="./media/ieeePhotos/robotboard.jpg" class="img-responsive" alt="Responsive image">
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="steppers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                <img src="./media/ieeePhotos/steppers.jpg" class="img-responsive" alt="Responsive image">
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- modals for ieee end -->
+
+
+  <body>
+
+    <div class="container">
+
+
+      <!-------------------------------------------------------------------------------->
+
+      <div class="bgimg-1">
+      </div>
+
+      <div class="caption">
+        <span class="border">ABDUL R. KHAN</span>
+      </div>
+
+      <div style="color: #777;background-color:white;padding:50px 80px;">
+        <h6 ><mark>My webpage is a work in progress :)</mark></h6>
+        <div class="row">
+          <div class="col-md-12">
+            <hr>
+            <h3 style="padding-bottom:10px; text-align:center" >IEEE Robotics Competition 2017 (Denver,CO)</h3>
+          </div>
+        </div>
+
+        <!-- main highlight row 1 -->
+        <div class="col-md-6" >
+          <section style="margin-top:15px">
+            <p><strong>Competition date</strong>: April 1st 2017.</p>
+            <p><strong>Motivation</strong>:<br>The field is meant to simulate tunnels containing infrastructure such as steel cables,
+              underground rails and electrical wires. Surface obstacles and anomalies represent typical operational challenge.
+            </p>
+            <p><strong>Objectives</strong>:<br>Map the field and its tunnel while avoiding obstacles
+              <br>open the lid on the container to reveal the dice<br>
+              read and display the number on the die.
+            </p>
+
+          </section>
+        </div>
+        <div class="row" style="padding-top:10px">
+          <div class="col-md-6" >
+            <div class="vid-responsive" >
+              <video controls loop autoplay >
+                <source src="./media/ieeePhotos/IEEE.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="row"  style="padding-top:30px">
+
+          <div class="col-md-6" >
+            <img class="mySlides img-responsive cursor " src="./media/ieeePhotos/competition.jpg" data-toggle="modal" data-target="#competition">
+            <img class="mySlides img-responsive cursor " src="./media/ieeePhotos/robotboard.jpg" data-toggle="modal" data-target="#robotboard">
+            <img class="mySlides img-responsive cursor " src="./media/ieeePhotos/steppers.jpg" data-toggle="modal" data-target="#steppers">
+            <img class="mySlides img-responsive cursor " src="./media/ieeePhotos/drive.jpg" data-toggle="modal" data-target="#drive">
+            <img class="mySlides img-responsive cursor " src="./media/ieeePhotos/LEDmap.jpg" data-toggle="modal" data-target="#LEDmap">
+            <img class="mySlides img-responsive cursor " src="./media/ieeePhotos/7seg.jpg" data-toggle="modal" data-target="#7seg">
+          </div>
+          <div class="col-md-6">
+            <section style="padding-top:15px">
+              <p>The robot is composed of major sub-system layers:<p>
+                 <strong>Perception</strong>: IR sensors and Vision to detect obstacles and read the dice number.
+                 LIDAR was employed initially to detect obstacles, but due to restrictions in weight and size,
+                  IR sensors were employed instead.<br>
+                 Computer vision was used to read the dice. I used <mark>OpenCV</mark> and image processing to determine the number
+                 of dots on the die and display it. <br>To sense
+                  underground wires, I built an EMF sensor using an Arduino which worked extremely well.<p>
+                 <strong>Arm</strong>: A linear actuator was used to grab and lift the lid.<p>
+                 <strong>Drive and Navigation</strong>: Decision-making and path planning algorithms were written
+                 for the robot to function autonomously, depending on the data from the camera and sensors.
+                </p>
+            </section>
+          </div>
+        </div>
+        <div class="row" style="padding-top:30px">
+          <div class="col-md-6" style="text-align:center; padding-top:15px">
+            <p ><strong>Technologies used</strong>:<br>
+              Python, C <br>
+              Computer Vision, OpenCV, ROS <br>
+              CAD, 3D fabrication <br>
+              LIDAR, IR, camera
+              <p><strong>Result</strong>:<br>Placed 5th out of 32 teams across the nation.</p>
+              <p><strong>Team</strong>:<br>De Do, Jarrod Nix, Jake Skodak, Greg Stout, Abdul R. Khan</p>
+
+            </p>
+          </div>
+          <div class="col-md-6" >
+            <div class="vid-responsive" >
+              <video  controls muted poster="./media/ieeePhotos/poster2.jpg">
+                <source src="./media/ieeePhotos/robotVid.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--
+      <div style="position:relative;">
+        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+          <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
+        </div>
+      </div>
+
+      <div class="bgimg-3">
+        <div class="caption" style="text-align:left">
+          <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span>
+        </div>
+      </div>
+-->
+      <div class="bgimg-3">
+        <div class="col-md-4" style="background-color:black;text-align:left; color:light-gray;padding:15px">
+          <p>I really enjoyed my time working on this robot. I gained lots of valuable experience and learned from the
+            mistakes and issues that I came across. But hey, I won a cash award though!</p>
+        </div>
+      </div>
+
+
+
+      <div style="color: #777;background-color:#282E34;padding:50px 80px;">
+        <div class="row" style="padding-top:30px;padding-bottom:15px">
+          <div class="col-md-12">
+            <hr>
+            <h2 class="text-muted" style="text-align:center;">Autonomous Robots</h2>
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-md-4" style="padding-top:15px">
+            <div class="vid-responsive" >
+              <video  controls  >
+                <source src="./media/deadreckoning_rotated.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+            </div>
+            <h4>Implementing A* algorithm</h4>
+            <!-- <p><a href="http://github.com/">Link to project</a></p>-->
+          </div>
+          <div class="col-md-4">
+            <img src="./media/collabPush.jpg" class="img-responsive cursor" style="padding-top:15px" alt="Responsive image" data-toggle="modal" data-target="#featCollabPush">
+            <h4>Collaborative Pushing</h4>
+            <p>(click the picture for video!)</p>
+            <!-- <p><a href="http://github.com/">Link to project</a></p> -->
+          </div>
+          <div class="col-md-4">
+
+              <img src="./media/fireRobot.jpg" class="img-responsive" style="padding-top:15px" alt="Responsive image" >
+              <!--<img src="./collabPush.jpg" class="img-responsive cursor" alt="Responsive image" data-toggle="modal" data-target="#feat2"> -->
+
+            <h4>Behavior-based Fire Robot</h4>
+            <!-- <p><a href="http://github.com/">Link to project</a></p> -->
+          </div>
+        </div>
+      </div>
+      <!-- autonomous robots row end-->
+      <!--
+      <div style="position:relative;">
+        <div style="color:#ddd;background-color:#282E34;padding:50px 80px;text-align: justify;">
+          <hr>
+          <h2 class="text-muted">Image Processing</h2>
+        </div>
+      </div>
+``````-->
+      <div style=" color: #777;background-color:white;padding:50px 80px;">
+        <div class="row">
+          <div class="col-md-12" style="text-align:center; ">
+            <hr>
+            <h2 class="text-muted">Image Processing</h2>
+            <h3 style="padding-bottom:0px; ">Template Matching using Normalized Convolution</h3>
+          </div>
+        </div>
+
+
+        <!-- Img proc row 1 -->
+        <div class="row text-center">
+          <div class="col-md-6">
+            <img  style="padding-top:15px" src="./media/neddermanTemplate.png" class="img-responsive" alt="Responsive image">
+          </div>
+          <div class="col-md-6">
+            <img style="padding-top:15px" src="./media/TMnedderman.png" class="img-responsive" alt="Responsive image" >
+          </div>
+          <div class="col-md-12" style="padding-top:15px">
+            <p >The fundamental method of calculating the image correlation is called cross-correlation, which essentially is a simple sum of pairwise multiplications of corresponding pixel values of the image and template. We also subtract the mean image brightness from each pixel value to make the results invariant to brightness change. Finally, we normalize the result to be between 0 and 255 and store the output to the array. Highest score coincides with the best match.
+            </p>
+          </div>
+        </div>
+            <!--
+            <p style=padding-top:0px><a href="http://github.com/">Link to code</a></p>
+            -->
+        <!-- Img proc row 1 end -->
+
+
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h3>Edge Detection using Prewitt Templates</h3>
+          </div>
+        </div>
+
+        <!-- Img proc row 2 -->
+        <div class="row text-center">
+          <div class="col-md-6">
+            <img src="./media/VEnedderman.png" class="img-responsive" alt="Responsive image" style="padding-top:10px">
+            <h4>Vertical Edges</h4>
+          </div>
+          <div class="col-md-6">
+            <img src="./media/HEnedderman.png" class="img-responsive" alt="Responsive image"  style="padding-top:10px">
+            <h4>Horizontal Edges</h4>
+          </div>
+          <div class="col-md-12">
+            <p style=padding-top:10px>We perform convolution of image with the Prewitt edge templates to extract features. First we iterate through image and simultaneously iterate through the kernel. We then perform
+              Convolution between image and kernel. In the end we normalize the output values to be between 0 and 255 and store the output to the array.
+            </p>
+          </div>
+        </div>
+      <!-- Img proc row 2 end -->
+<!--
+-->
+      </div>
+
+
+      <div style="height:100%;color: #777;background-color:aaa;padding:50px 80px;">
+        <div class="row">
+          <div class="col-md-12">
+            <hr>
+            <h2 class="text-muted" style="text-align:center">Embedded Systems</h2>
+          </div>
+        </div>
+
+        <div class="row text-center" style="padding-top:30px">
+          <!--
+          <div class="col-md-6">
+            <img src="fireRobot.jpg" class="img-responsive" alt="Responsive image">
+            <h4>Behavior-based Fire Robot</h4>
+            <p><a href="http://github.com/">Link to project</a></p>
+          </div>
+        -->
+          <div class="col-md-6 col-md-push-3">
+            <img src="./media/alarmSystem3.jpg" class="img-responsive" alt="Responsive image" >
+            <h4>Security Alarm System prototype</h4>
+        <!--    <p><a href="http://github.com/">Link to project</a></p>  -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script>
+    // Automatic Slideshow - change image every 3 seconds
+      var myIndex = 0;
+      carousel();
+
+      function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}
+          x[myIndex-1].style.display = "block";
+          setTimeout(carousel, 5000);
+      }
+
+
+
+    </script>
 </body>
+
 </html>
